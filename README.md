@@ -29,5 +29,5 @@ This is a simple React application that displays a list of your recent bank tran
 
 * Create a component to display the transactions table.
 * Create a form component for adding new transactions.
-* Implement state management to store transactions and handle form submission.
+* Implement state management to store transactions,update transactions and handle form submission.
 * Implement filtering functionality.
