@@ -1,35 +1,35 @@
-import React, {useState} from "react";
+import React from "react";
 
-function TransactionTable(){
-    const[transactions, setTransactions] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:3000/transactions')
-        .then(response => response.json())
-        .then(data => setTransactions(data.transactions))
-        .catch(error => console.error('Error fetching transactions:', error));
-    },[]);
-    
-
-    return(
+function TransactionTable({transactions}){
+    console.log(transactions)
+  return(
+    <div>
+      <h2>Transactions list</h2>
         <table>
       <thead>
         <tr>
-          <th>Date</th>
+          <th>ID</th>
           <th>Description</th>
           <th>Amount</th>
+          <th>Category</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>
-        {transactions.map(transaction => (
-          <tr key={transaction.id}>
-            <td>{transaction.date}</td>
-            <td>{transaction.description}</td>
-            <td>{transaction.amount}</td>
-          </tr>
-        ))}
+          {transactions.map((transaction)=>(
+              <tr key={transaction.id}>
+              <td>{transaction.id}</td>
+              <td>{transaction.description}</td>
+              <td>{transaction.amount}</td>
+              <td>{transaction.category}</td>
+              <td>{transaction.date}</td>
+            </tr>
+          ))}
+          
+      
       </tbody>
-     </table>
-    )
+      </table>
+    </div>
+  )
 }
 export default TransactionTable;
