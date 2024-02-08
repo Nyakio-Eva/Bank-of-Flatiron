@@ -29,6 +29,7 @@ function App() {
 
   const addTransaction = (newTransaction) => {
     setTransactions([...transactions, newTransaction]);
+    setFilteredTransactions([...filteredTransactions, newTransaction])
   };
   
   function handleSearch(){
