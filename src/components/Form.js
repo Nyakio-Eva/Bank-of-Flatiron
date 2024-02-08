@@ -18,20 +18,22 @@ function TransactionForm({onSubmit}){
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>ID:</label>
-      <input type="id" value={id} onChange={(e) => setId(e.target.value)} required/>
-      <label>Date:</label>
-      <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
-      <br />
-      <label>Description:</label>
-      <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} required />
-      <br />
-      <label>Amount:</label>
-      <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} required />
-      <br />
-      <button type="submit">Add Transaction</button>
-    </form>
+   <div>
+      <form onSubmit={handleSubmit}>
+        <label>ID:</label>
+        <input type="id" value={id} onChange={(e) => setId(e.target.value)} required/>
+        <label>Date:</label>
+        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+        <br />
+        <label>Description:</label>
+        <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} required />
+        <br />
+        <label>Amount:</label>
+        <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} required />
+        <br />
+        <button type="submit">Add Transaction</button>
+      </form>
+    </div>
   );
 };
     
