@@ -40,7 +40,7 @@ function App() {
      }
    });
 
-   return setFilteredTransactions(filteredTransactions);
+    setFilteredTransactions(filteredTransactions);
   };
 
  
