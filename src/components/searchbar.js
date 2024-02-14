@@ -1,7 +1,13 @@
 
 function SearchBar({searchTerm, setSearchTerm, onSearch}){
 
-    const handleSearch = () => onSearch();
+    const handleKeyPress = (e) => {
+      if(e.key === "Enter"){
+        onSearch();
+        setSearchTerm("");
+      }
+     
+    };
 
     return(
       <div>
@@ -11,7 +17,7 @@ function SearchBar({searchTerm, setSearchTerm, onSearch}){
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button onClick={handleSearch} >Enter</button>
+        <button style={{ backgroundColor:"#0a511a", color: "white"  }} onClick={handleKeyPress} >Search</button>
         
       </div>
         
