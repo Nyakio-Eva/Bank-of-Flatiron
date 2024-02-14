@@ -2,18 +2,18 @@ import React from "react";
 import { Table } from "react-bootstrap"
 
 function TransactionTable({transactions}){
-    console.log(transactions)
+    
   return(
-    <div className="container">
-      <h2>Transactions list</h2>
+    <div className="container mt-3">
+      <h3 className="text-center"style={{ color: "#0a511a"  }} >Transactions</h3>
         <Table striped bordered hover responsive>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Description</th>
-          <th>Amount</th>
-          <th>Category</th>
-          <th>Date</th>
+          <th style={{ color: "#0a511a" }}>ID</th>
+          <th style={{ color: "#0a511a" }}>Description</th>
+          <th style={{ color: "#0a511a" }}>Amount</th>
+          <th style={{ color: "#0a511a" }}>Category</th>
+          <th style={{ color: "#0a511a" }}>Date</th>
         </tr>
       </thead>
       <tbody>

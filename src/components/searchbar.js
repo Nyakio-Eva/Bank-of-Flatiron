@@ -1,5 +1,5 @@
 
-function SearchBar({searchTerm, setSearchTerm, onSearch}){
+function SearchBar({searchTerm, setSearchTerm, onSearch, onGoBack}){
 
     const handleKeyPress = (e) => {
       if(e.key === "Enter"){
@@ -9,6 +9,10 @@ function SearchBar({searchTerm, setSearchTerm, onSearch}){
      
     };
 
+    const handleGoBack = () => {
+      onGoBack();
+    }
+
     return(
       <div>
         <input
@@ -16,9 +20,15 @@ function SearchBar({searchTerm, setSearchTerm, onSearch}){
           placeholder="search Transactions"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown = {handleKeyPress}
         />
-        <button style={{ backgroundColor:"#0a511a", color: "white"  }} onClick={handleKeyPress} >Search</button>
-        
+        <button style={{ backgroundColor:"#0a511a", color: "white"  }} 
+           onClick={onSearch} >Search
+          </button>
+          {searchTerm && (
+            <button onClick={handleGoBack}>Go Back</button>
+          )}
+         
       </div>
         
     )

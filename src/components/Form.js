@@ -5,9 +5,10 @@ import Button from 'react-bootstrap/Button';
 
 
 function TransactionForm({onSubmit}){
-  const [id, setId] =useState("")  
+  const [id, setId] = useState("");  
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
 
   const handleSubmit = (e) => {
@@ -16,18 +17,18 @@ function TransactionForm({onSubmit}){
     setId('');
     setDate('');
     setDescription('');
+    setCategory('');
     setAmount('');
   };
 
   return (
    <div className="d-flex justify-content-center align-items-center">
     <div>
-      <h4 className="text-center">Transaction Form</h4>
 
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>ID:</Form.Label>
-          <Form.Control type="id" value={id} onChange={(e) => setId(e.target.value)} 
+          <Form.Control type="text" value={id} onChange={(e) => setId(e.target.value)} 
             placeholder="Enter id"  required/>
         </Form.Group>
 
@@ -41,14 +42,20 @@ function TransactionForm({onSubmit}){
         <Form.Control type="text" placeholder="Enter description" value={description} 
             onChange={(e) => setDescription(e.target.value)} required/>
         </Form.Group>
+
+        <Form.Group className="mb-3" >
+        <Form.Label>Category:</Form.Label>
+        <Form.Control type="text" placeholder="Enter category" value={category} 
+            onChange={(e) => setCategory(e.target.value)} required/>
+        </Form.Group>
         
         <Form.Group className="mb-3" >
         <Form.Label>Amount:</Form.Label>
-        <Form.Control type="number" placeholder="Enter amount" value={description} 
+        <Form.Control type="number" placeholder="Enter amount" value={amount} 
             onChange={(e) => setAmount(e.target.value)} required/>
         </Form.Group>
         <Button variant="success" type="submit">
-          Add transaction
+          submit
         </Button>
       </Form>
      </div>

@@ -10,6 +10,7 @@ function App() {
   const [transactions, setTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredTransactions, setFilteredTransactions] = useState([]);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     fetchTransactionData();
@@ -22,9 +23,10 @@ function App() {
         throw new Error('Failed to fetch transactions');
       }
       const data = await response.json();
-      console.log(data);
+     
       setTransactions(data);
       setFilteredTransactions(data);
+      
     } catch (error) {
       console.error('Error fetching transactions:', error);
     }
@@ -47,16 +49,37 @@ function App() {
     setFilteredTransactions(filteredTransactions);
   };
 
+  const handleGoBack =()=>{
+    setSearchTerm('');
+    setFilteredTransactions(transactions);
+  }
+  
+  const handleToggleForm = () => {
+    setShowForm(!showForm);
+    
+  };
  
   return (
     <div className="container">
       <header className="App-header">
         <h1>Bank of Flatiron</h1>
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch= {handleSearch} />
+        <SearchBar 
+         searchTerm={searchTerm} 
+         setSearchTerm={setSearchTerm} 
+         onSearch= {handleSearch}
+         onGoBack={handleGoBack} 
+        />
+        <button className="mt-3" style={{ backgroundColor:"#0a511a", color: "white"  }} 
+          onClick={handleToggleForm}>
+          {showForm ? "Hide" : "Show "}
+          Transaction Form
+        </button>
       </header>
 
+      {showForm && <TransactionForm onSubmit={addTransaction} />}
+
       <TransactionTable transactions={filteredTransactions} />
-      <TransactionForm onSubmit={addTransaction} />
+      
       
     </div>
   );
