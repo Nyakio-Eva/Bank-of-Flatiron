@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../src/App.css'
 import TransactionTable from "./transactionsTable";
 import TransactionForm from "./Form";
 import SearchBar from "./searchbar";
+
 
 function App() {
   const [transactions, setTransactions] = useState([]);
@@ -46,13 +49,15 @@ function App() {
 
  
   return (
-    <div className="App">
+    <div className="container">
       <header className="App-header">
         <h1>Bank of Flatiron</h1>
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch= {handleSearch} />
       </header>
-      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch= {handleSearch} />
+
       <TransactionTable transactions={filteredTransactions} />
       <TransactionForm onSubmit={addTransaction} />
+      
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import React from "react";
+import { Table } from "react-bootstrap"
 
 function TransactionTable({transactions}){
     console.log(transactions)
   return(
-    <div>
+    <div className="container">
       <h2>Transactions list</h2>
-        <table>
+        <Table striped bordered hover responsive>
       <thead>
         <tr>
           <th>ID</th>
@@ -23,12 +24,11 @@ function TransactionTable({transactions}){
               <td>{transaction.amount}</td>
               <td>{transaction.category}</td>
               <td>{transaction.date}</td>
+              
             </tr>
           ))}
-          
-      
       </tbody>
-      </table>
+      </Table>
     </div>
   )
 }
