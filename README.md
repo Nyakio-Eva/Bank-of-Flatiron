@@ -14,6 +14,9 @@ This is a simple React application that displays a list of your recent bank tran
 1. As a user, I want to see a table of all transactions.
 2. As a user, I want to fill out and submit a form to add a new transaction.
 3. As a user, I want to be able to filter transactions by typing into the search bar.
+4. As a user, I can sort transactions alphabetically by category or description.
+5. As a user, I can delete a transaction which will remove it from the table
+6. As a user, I can edit a transaction
 
 ## How to run the app
 
@@ -25,9 +28,12 @@ This is a simple React application that displays a list of your recent bank tran
 6. Type into the search bar to filter transactions by description.
 
 
-## Pseudo code
+## Features
 
 * Create a component to display the transactions table.
 * Create a form component for adding new transactions.
 * Implement state management to store transactions,update transactions and handle form submission.
 * Implement filtering functionality.
+* Add sorting functionality
+* Add a delete functionality
+* Implement an edit transaction functionality
